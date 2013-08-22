@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Beet Greens",
+    "category":"Vegetable:Non-Starchy",
+    "color":"Green-Green"
+  },
+  {
+    "name": "Brocolli",
+    "category":"Vegetable:Non-Starchy",
+    "color":"Green-Green"
+  },
+  {
+    "name": "Alfalfa Sprouts",
+    "category":"Vegetable:Non-Starchy",
+    "color":"Green"
+  }
+]

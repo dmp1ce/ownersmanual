@@ -1,9 +1,22 @@
-<html>
+<html ng-app>
 <head>
+  <script src="lib/angular/angular.min.js"></script> 
+  <script src="js/controller.js"></script> 
   <title>Owner's Manual</title>
 </head>
-<body>
-  <h1>Welcome!</h1>
-  <p>Welcome from index.html!</p>
+<body ng-controller="FoodListCtrl">
+  <div>Search: <input ng-model="query">
+  Sort by:
+  <select ng-model="orderProp">
+    <option value="category">Category</option>
+    <option value="color">Color</option>
+  </select>
+
+  </div>
+  <ul>
+    <li ng-repeat="food in foods | filter:query | orderBy:orderProp">
+      {{food.name}}, {{food.color}}, {{food.category}}
+    </li>
+  </ul>
 </body>
 </html>
