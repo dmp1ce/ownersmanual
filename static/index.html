@@ -6,17 +6,42 @@
 </head>
 <body ng-controller="FoodListCtrl">
   <div>Search: <input ng-model="query">
-  Sort by:
-  <select ng-model="orderProp">
-    <option value="category">Category</option>
-    <option value="color">Color</option>
-  </select>
-
+    Sort by:
+    <select ng-model="orderProp">
+      <option value="name">Name</option>
+      <option value="category">Category</option>
+      <option value="color">Color</option>
+    </select>
+  </div>
+  <div ng-show="green_greens_veg_non_starchy.length + green_greens_herbs.length + green_greens_eggs.length">
+    <h2>Green-Green</h2>
+    <h3>Superfoods!</h3>
   </div>
   <ul>
-    <li ng-repeat="food in foods | filter:query | orderBy:orderProp">
-      {{food.name}}, {{food.color}}, {{food.category}}
+    <li ng-show="green_greens_veg_non_starchy.length">Vegetable:Non-Starchy
+      <ul>
+        <li ng-repeat="food in green_greens_veg_non_starchy = (green_greens | filter:{category:'Vegetable:Non-Starchy'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
     </li>
+    <li ng-show="green_greens_herbs.length">Herbs
+      <ul>
+        <li ng-repeat="food in green_greens_herbs = (green_greens | filter:{category:'Herbs'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="green_greens_eggs.length">Eggs
+      <ul>
+        <li ng-repeat="food in green_greens_eggs = (green_greens | filter:{category:'Eggs'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+
+
   </ul>
+
 </body>
 </html>
