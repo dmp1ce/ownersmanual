@@ -2,18 +2,19 @@
 <head>
   <script src="lib/angular/angular.min.js"></script> 
   <script src="js/controller.js"></script> 
-  <title>Owner's Manual</title>
+  <link rel="stylesheet" type="text/css" href="css/layout.css">
+  <title>The Savanna Model by Geoff Bond</title>
 </head>
 <body ng-controller="FoodListCtrl">
-  <div>Search: <input ng-model="query">
-    Sort by:
-    <select ng-model="orderProp">
-      <option value="name">Name</option>
-      <option value="category">Category</option>
-      <option value="color">Color</option>
-    </select>
+  <h1>The Savanna Model by Geoff Bond</h1>
+  <div><input ng-model="query"></input></div>
+  <div>
+  <a href="#">About</a>
+  <a href="#">Updates</a>
+  <a href="#">Feedback</a>
   </div>
-  <div ng-show="green_greens_veg_non_starchy.length + green_greens_herbs.length + green_greens_eggs.length">
+  <div class="column">
+  <div ng-show="green_greens_veg_non_starchy.length + green_greens_herbs.length + green_greens_eggs.length + green_greens_finfish.length + green_greens_shellfish.length + green_greens_nuts.length + green_greens_plant_oils.length + green_greens_fish_oils.length + green_greens_beverages.length">
     <h2>Green-Green</h2>
     <h3>Superfoods!</h3>
   </div>
@@ -39,9 +40,74 @@
         </li>
       </ul>
     </li>
-
-
+    <li ng-show="green_greens_finfish.length">Fish, Finfish
+      <ul>
+        <li ng-repeat="food in green_greens_finfish = (green_greens | filter:{category:'Fish, Finfish'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="green_greens_shellfish.length">Fish, Shellfish
+      <ul>
+        <li ng-repeat="food in green_greens_shellfish = (green_greens | filter:{category:'Fish, shellfish'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="green_greens_nuts.length">Nuts
+      <ul>
+        <li ng-repeat="food in green_greens_nuts = (green_greens | filter:{category:'Nuts'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <h4 ng-show="green_greens_plant_oils.length + green_greens_fish_oils.length">Fats & Oils</h4>
+    <li ng-show="green_greens_plant_oils.length">Plant Oils
+      <ul>
+        <li ng-repeat="food in green_greens_plant_oils = (green_greens | filter:{category:'Plant Oils'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="green_greens_fish_oils.length">Fish Oils
+      <ul>
+        <li ng-repeat="food in green_greens_fish_oils = (green_greens | filter:{category:'Fish Oils'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="green_greens_beverages.length">Beverages
+      <ul>
+        <li ng-repeat="food in green_greens_beverages = (green_greens | filter:{category:'Beverages'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
   </ul>
+  </div>
+
+  <div class="column">
+  <div ng-show="greens_veg_non_starchy.length + greens_condiments.length">
+    <h2>Green</h2>
+    <h3>Good Foods</h3>
+  </div>
+  <ul>
+    <li ng-show="greens_veg_non_starchy.length">Vegetable:Non-Starchy
+      <ul>
+        <li ng-repeat="food in greens_veg_non_starchy = (greens | filter:{category:'Vegetable:Non-Starchy'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="greens_condiments.length">Condiments
+      <ul>
+        <li ng-repeat="food in greens_condiments = (greens | filter:{category:'Condiments'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+  </ul>
+  </div>
 
 </body>
 </html>

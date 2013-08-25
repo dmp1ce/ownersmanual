@@ -1,0 +1,6 @@
+.column {
+  width: 300px;
+  float: left;
+  border-width: thin;
+  border-style: dotted;
+}
