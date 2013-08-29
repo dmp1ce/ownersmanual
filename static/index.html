@@ -87,7 +87,7 @@
   </div>
 
   <div class="column">
-  <div ng-show="greens_veg_non_starchy.length + greens_condiments.length">
+  <div ng-show="greens_veg_non_starchy.length + greens_condiments.length + greens_fruit.length + greens_meat_farmed.length + greens_meat_offal.length + greens_meat_game.length + greens_meat_exotic.length + geens_plant_oils.length">
     <h2>Green</h2>
     <h3>Good Foods</h3>
   </div>
@@ -102,6 +102,56 @@
     <li ng-show="greens_condiments.length">Condiments
       <ul>
         <li ng-repeat="food in greens_condiments = (greens | filter:{category:'Condiments'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="greens_sauces_dips.length">Sauces and Dips
+      <ul>
+        <li ng-repeat="food in greens_sauces_dips = (greens | filter:{category:'Sauces and Dips'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="greens_fruits.length">Fruits
+      <ul>
+        <li ng-repeat="food in greens_fruits = (greens | filter:{category:'Fruits'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="greens_meat_farmed.length">Meat, Farmed
+      <ul>
+        <li ng-repeat="food in greens_meat_farmed = (greens | filter:{category:'Meat, Farmed'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="greens_meat_offal.length">Meat, Offal
+      <ul>
+        <li ng-repeat="food in greens_meat_offal = (greens | filter:{category:'Meat, Offal'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="greens_meat_game.length">Meat, Game
+      <ul>
+        <li ng-repeat="food in greens_meat_game = (greens | filter:{category:'Meat, Game'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <li ng-show="greens_meat_exotic.length">Meat, Exotic
+      <ul>
+        <li ng-repeat="food in greens_meat_exotic = (greens | filter:{category:'Meat, Exotic'} | filter:query | orderBy:orderProp)">
+          {{food.name}}
+        </li>
+      </ul>
+    </li>
+    <h4 ng-show="greens_plant_oils.length">Fats & Oils</h4>
+    <li ng-show="greens_plant_oils.length">Plant Oils
+      <ul>
+        <li ng-repeat="food in greens_plant_oils = (greens | filter:{category:'Plant Oils'} | filter:query | orderBy:orderProp)">
           {{food.name}}
         </li>
       </ul>
