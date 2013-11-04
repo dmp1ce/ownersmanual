@@ -1,4 +1,6 @@
-function FoodListCtrl($scope, $http, $filter) {
+var app = angular.module('myApp', ['ngAnimate']);
+
+app.controller("FoodListCtrl", function($scope, $http, $filter) {
   $http.get("js/foods.json").success(function(data) {
     $scope.foods = data;
 
@@ -19,7 +21,7 @@ function FoodListCtrl($scope, $http, $filter) {
   });
   
   $scope.orderProp = "color";
-}
+})
 
 //function FilterFoodCategories(foods, $filter) {
 //  var filtered = new Object();
