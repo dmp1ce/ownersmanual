@@ -19,5 +19,5 @@ executable ownersmanual
   hs-source-dirs:    src
   -- other-modules:       
   build-depends:     base ==4.5.*
-                     , scotty
-                     , wai-middleware-static 
+                     , scotty >=0.5.0
+                     , wai-middleware-static
